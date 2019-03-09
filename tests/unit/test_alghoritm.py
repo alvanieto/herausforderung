@@ -13,3 +13,13 @@ def test_alghoritm_pipeline(alghoritm, expected):
 
 def test_alghoritm_pipeline_default():
     assert alghoritm_pipeline() == []
+
+
+@pytest.mark.parametrize('field, expected', [
+    ('', ''),
+    ('HallO WeLt', 'hallo welt'),
+    ('HERAUS ', 'heraus '),
+    (' forderung ', ' forderung '),
+])
+def test_alghoritm_lowercase(field, expected):
+    assert _lowercase(field) == expected

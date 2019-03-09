@@ -8,7 +8,7 @@ def alghoritm_pipeline(alghoritm=''):
 
 
 def _lowercase(field: str) -> str:
-    return field.lowercase()
+    return field.lower()
 
 
 _ALGHORITM_PIPELINES = {
