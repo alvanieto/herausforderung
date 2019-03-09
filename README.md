@@ -1,17 +1,30 @@
-## POI-Adquisition
-
 # Configure the environment
 
-Prerequisites;
+## Prerequisites
 
 * Python 3.7
-* Tested on Linux
+* Tested only on Linux
 
-I recommend to install the dependencies in a virtualenv. Using virtualenvwrapper follow the next
-steps;
+## Development environment
 
-1. mkvirtualenv herausforderung
-2. workon herausforderung (first time it's not neccesary)
+I recommend to install the dependencies in a virtualenv.
 
-1. Activate virtualenv. workon herausforderung
-2. python setup.py install
+```bash
+python setup.py develop
+```
+or
+```bash
+pip install -r requirements.txt
+```
+
+## Running tests
+
+All tests run with pytest (configuration in setup.cfg)
+
+```bash
+pytest tests
+```
+
+## Tests coverage
+
+Coverage results in html are in htmlcov/index.html
