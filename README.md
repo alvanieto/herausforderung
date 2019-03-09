@@ -1,4 +1,4 @@
-## Geoblink Data POI-Adquisition
+## POI-Adquisition
 
 # Configure the environment
 
