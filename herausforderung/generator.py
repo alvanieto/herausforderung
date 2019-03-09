@@ -1,6 +1,18 @@
-def generate_file(data_1, data_2):
-    """Generate merged csv file.
+import csv
+from copy import deepcopy
+from decimal import Decimal, ROUND_UP
 
-    :param data_1: data of type 1
-    :param data_2: data of type 2
+
+def generate_file(data):
+    """Generate merged csv file. Ratio precision set to 3 decimals round up.
+
+    :param data: data of type 1 and 2
     """
+    with open('merged_data.csv', 'w') as csv_file:
+        fieldnames = ('id', 'var1', 'var2', 'ratio')
+        writer = csv.DictWriter(csv_file, delimiter=';', fieldnames=fieldnames)
+        writer.writeheader()
+        data_copy = deepcopy(data)
+        for row in data_copy:
+            row['ratio'] = row['ratio'].quantize(Decimal('0.001'), rounding=ROUND_UP)
+            writer.writerow(row)
