@@ -25,12 +25,12 @@ def two_files_input_data_1csv_and_input_data_2csv(input_data_1: str, input_data_
 
 @when('I merge these files with normalize alghoritm <alghoritm>')
 def i_merge_these_files(input_data_1: str, input_data_2: str, alghoritm: str):
-    merge_files(input_data_1, input_data_2, alghoritm)
+    merge_files(_abs_filename(input_data_1), _abs_filename(input_data_2), alghoritm)
 
 
 @then('I get the next merged file <merged_data>')
 def i_get_the_next_merged_file(merged_data: str):
-    assert filecmp.cmp(_abs_filename(merged_data), _abs_filename('merged_data.csv'))
+    assert filecmp.cmp(_abs_filename(merged_data), 'merged_data.csv')
 
 
 def _abs_filename(filename: str) -> str:

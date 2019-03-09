@@ -11,7 +11,7 @@ def merge_data(data):
         var1 = data_1.get('variable1', '')
         var2 = data_2.get('variable2', '')
         yield {
-            'id': data_1.get('id', ''),
+            'id_store': data_1.get('id_store', ''),
             'var1': var1,
             'var2': var2,
             'ratio': Decimal(var1 / var2)

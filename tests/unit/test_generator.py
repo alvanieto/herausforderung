@@ -13,17 +13,17 @@ def clean_previos_file():
 
 def test_generate_file():
     data = [{
-        'id': 1,
+        'id_store': 1,
         'var1': 74,
         'var2': 88,
         'ratio': Decimal(74 / 88)
     }, {
-        'id': 2,
+        'id_store': 2,
         'var1': 100,
         'var2': 50,
         'ratio': Decimal(2)
     }]
-    expected = '\n'.join(['id;var1;var2;ratio',
+    expected = '\n'.join(['id_store;var1;var2;ratio',
                           '1;74;88;0.841',
                           '2;100;50;2.000', ''])
     generate_file(data)

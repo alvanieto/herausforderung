@@ -12,13 +12,13 @@ def test_merge_data_no_data():
 
 def test_merge_data():
     data = [({
-        'id': 1,
+        'id_store': 1,
         'variable1': 90
     }, {
         'variable2': 45
     })]
     expected = {
-        'id': 1,
+        'id_store': 1,
         'var1': 90,
         'var2': 45,
         'ratio': 2
@@ -29,7 +29,7 @@ def test_merge_data():
 def test_merge_data_zero_variable2():
     with pytest.raises(ZeroDivisionError):
         data = [({
-            'id': 1,
+            'id_store': 1,
             'variable1': 0
         }, {
             'variable2': 0
@@ -44,7 +44,7 @@ def test_merge_data_ratio_precision():
         'variable2': 88
     })]
     expected = {
-        'id': '',
+        'id_store': '',
         'var1': 74,
         'var2': 88,
         'ratio': Decimal(74 / 88)
