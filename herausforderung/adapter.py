@@ -1,11 +1,9 @@
-def adapt_data(data, type_):
-    """Convert a list of dict to a dict with the field address as key.
+def adapt_data(data_1, data_2):
+    """Prepare the data to be processed.
 
-    :param data: list of dict to adapt
-    :param type_: namedtuple with the type specific info
-    :return: dict
+    :param data_1: generator of data_1 dict
+    :param data_2: generator of data_2 dict
+    :return: generator of tuples of data_1 and data_2
     """
-    def _typed(row):
-        return type_(**{field: row.get(field) for field in type_._fields})
-
-    return {row['address']: _typed(row) for row in data if row.get('address')}
+    for row_1, row_2 in zip(data_1, data_2):
+        yield row_1, row_2
