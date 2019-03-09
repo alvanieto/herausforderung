@@ -1,9 +1,9 @@
-from extractor import read_csv
-from adapter import adapt_data
-from alghoritm import alghoritm_pipeline
-from matcher import match_data
-from merger import merge_data
-from generator import generate_file
+from .extractor import read_csv
+from .adapter import adapt_data
+from .alghoritm import alghoritm_pipeline
+from .matcher import match_data
+from .merger import merge_data
+from .generator import generate_file
 
 
 def merge_files(input_1: str, input_2: str, alghoritm: str = None):

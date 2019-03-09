@@ -1,3 +1,6 @@
+from copy import copy
+
+
 def match_data(data, alghoritm_pipeline):
     """This function try to match the two addresses applying the alghoritm defined in the pipeline.
 
@@ -13,4 +16,8 @@ def match_data(data, alghoritm_pipeline):
             address_1 = alghoritm(address_1)
             address_2 = alghoritm(address_2)
             if address_1 == address_2:
-                yield data_1, data_2
+                new_data_1 = copy(data_1)
+                new_data_1['address'] = address_1
+                new_data_2 = copy(data_2)
+                new_data_2['address'] = address_2
+                yield new_data_1, new_data_2

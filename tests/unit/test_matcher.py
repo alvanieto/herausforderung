@@ -19,19 +19,23 @@ def data_1():
     }
 
 
+@pytest.fixture
+def data_2():
+    return {
+        'address': 'oben den linden'
+    }
+
+
 def test_match_data_no_alghoritm_pipeline(data_1):
     assert next(match_data([(data_1, data_1)], [])) == (data_1, data_1)
 
 
-def test_match_data(data_1):
-    alghoritm_pipeline = [lambda row: row, lambda row: row]
-    assert next(match_data([(data_1, data_1)], alghoritm_pipeline)) == (data_1, data_1)
+def test_match_data(data_1, data_2):
+    alghoritm_pipeline = [lambda row: row, lambda row: 'unter den linden']
+    assert next(match_data([(data_1, data_2)], alghoritm_pipeline)) == (data_1, data_1)
 
 
-def test_match_data_no_match_alghoritm(data_1):
+def test_match_data_no_match_alghoritm(data_1, data_2):
     with pytest.raises(StopIteration):
-        data_2 = {
-            'address': 'oben den linden'
-        }
         alghoritm_pipeline = [lambda row: row, lambda row: row]
         next(match_data([(data_1, data_2)], alghoritm_pipeline))
