@@ -1,5 +1,8 @@
 __pycache__/
 htmlcov/
+build/
+dist/
+herausforderung.egg-info/
 .coverage
 merged_data.csv
 herausforderung.log

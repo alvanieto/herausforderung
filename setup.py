@@ -17,5 +17,9 @@ setup(
     description='Data POI-Adquisition merge',
     packages=find_packages(),
     install_requires=requirements_file(),
-    tests_require=['pytest', 'coverage']
+    entry_points={
+        'console_scripts': [
+            'merge = herausforderung.main:main'
+        ]
+    }
 )
