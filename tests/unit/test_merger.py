@@ -27,14 +27,19 @@ def test_merge_data():
 
 
 def test_merge_data_zero_variable2():
-    with pytest.raises(ZeroDivisionError):
-        data = [({
-            'id_store': 1,
-            'variable1': 0
-        }, {
-            'variable2': 0
-        })]
-        next(merge_data(data))
+    data = [({
+        'id_store': 1,
+        'variable1': 0
+    }, {
+        'variable2': 0
+    })]
+    expected = {
+        'id_store': 1,
+        'var1': 0,
+        'var2': 0,
+        'ratio': 0
+    }
+    assert next(merge_data(data)) == expected
 
 
 def test_merge_data_ratio_precision():

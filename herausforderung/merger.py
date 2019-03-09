@@ -14,5 +14,5 @@ def merge_data(data):
             'id_store': data_1.get('id_store', ''),
             'var1': var1,
             'var2': var2,
-            'ratio': Decimal(var1 / var2)
+            'ratio': Decimal(var1 / var2) if var2 != 0 else Decimal('0.0')
         }
