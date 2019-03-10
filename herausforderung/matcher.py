@@ -18,14 +18,17 @@ def match_data(data, alghoritm_pipeline):
         if address_1 == address_2:
             logging.info('Matched, same name')
             yield data_1, data_2
-        for alghoritm in alghoritm_pipeline:
-            address_1 = alghoritm(address_1)
-            address_2 = alghoritm(address_2)
-            if address_1 == address_2:
-                logging.info(f'Matched: {address_1} and {address_2}')
-                new_data_1 = copy(data_1)
-                new_data_1['address'] = address_1
-                new_data_2 = copy(data_2)
-                new_data_2['address'] = address_2
-                yield new_data_1, new_data_2
-        logging.info('Not matched')
+        else:
+            for alghoritm in alghoritm_pipeline:
+                address_1 = alghoritm(address_1)
+                address_2 = alghoritm(address_2)
+                if address_1 == address_2:
+                    logging.info(f'Matched: {address_1} and {address_2}')
+                    new_data_1 = copy(data_1)
+                    new_data_1['address'] = address_1
+                    new_data_2 = copy(data_2)
+                    new_data_2['address'] = address_2
+                    yield new_data_1, new_data_2
+                    break
+            else:
+                logging.info('Not matched')
