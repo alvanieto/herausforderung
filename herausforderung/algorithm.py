@@ -1,13 +1,13 @@
 import re
 
 
-def alghoritm_pipeline(alghoritm=''):
-    """Factory that return a pipeline of alghortms.
+def algorithm_pipeline(algorithm=''):
+    """Factory that return a pipeline of algorthms.
 
-    :param alghoritm: Name of the alghoritm pipeline
-    :return: A list of alghoritm to apply
+    :param alghritom: Name of the algorithm pipeline
+    :return: A list of algorithm to apply
     """
-    return _ALGHORITM_PIPELINES.get(alghoritm, [])
+    return _ALGHORITM_PIPELINES.get(algorithm, [])
 
 
 def _lowercase(value: str) -> str:

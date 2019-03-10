@@ -1,22 +1,22 @@
 import pytest
 
-from herausforderung.alghoritm import (alghoritm_pipeline, _lowercase, _remove_special_chars,
+from herausforderung.algorithm import (algorithm_pipeline, _lowercase, _remove_special_chars,
                                        _normalize_street, _normalize_road)
 
 
-@pytest.mark.parametrize('alghoritm, expected', [
+@pytest.mark.parametrize('algorithm, expected', [
     ('', []),
     ('simple', [_lowercase]),
     ('no_special_chars', [_lowercase, _remove_special_chars]),
     ('normalize_street', [_lowercase, _remove_special_chars, _normalize_street]),
     ('normalize_road', [_lowercase, _remove_special_chars, _normalize_street, _normalize_road]),
 ])
-def test_alghoritm_pipeline(alghoritm, expected):
-    assert alghoritm_pipeline(alghoritm) == expected
+def test_algorithm_pipeline(algorithm, expected):
+    assert algorithm_pipeline(algorithm) == expected
 
 
-def test_alghoritm_pipeline_default():
-    assert alghoritm_pipeline() == []
+def test_algorithm_pipeline_default():
+    assert algorithm_pipeline() == []
 
 
 @pytest.mark.parametrize('value, expected', [

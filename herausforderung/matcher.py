@@ -5,8 +5,8 @@ from copy import copy
 logging.basicConfig(level=logging.INFO, filename='herausforderung.log')
 
 
-def match_data(data, alghoritm_pipeline):
-    """This function try to match the two addresses applying the alghoritm defined in the pipeline.
+def match_data(data, algorithm_pipeline):
+    """This function try to match the two addresses applying the algorithm defined in the pipeline.
 
     :param data: a row from file one and file two
     :return: generator with matched data
@@ -19,9 +19,9 @@ def match_data(data, alghoritm_pipeline):
             logging.info('Matched, same name')
             yield data_1, data_2
         else:
-            for alghoritm in alghoritm_pipeline:
-                address_1 = alghoritm(address_1)
-                address_2 = alghoritm(address_2)
+            for algorithm in algorithm_pipeline:
+                address_1 = algorithm(address_1)
+                address_2 = algorithm(address_2)
                 if address_1 == address_2:
                     logging.info(f'Matched: {address_1} and {address_2}')
                     new_data_1 = copy(data_1)

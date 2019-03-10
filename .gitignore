@@ -3,6 +3,7 @@ htmlcov/
 build/
 dist/
 herausforderung.egg-info/
+.ropeproject/
 .coverage
 merged_data.csv
 herausforderung.log

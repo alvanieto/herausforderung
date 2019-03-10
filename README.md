@@ -39,5 +39,5 @@ merge --help
 To run the program with best normalize execute;
 
 ```bash
-merge tests/acceptance/data_poi_part_1.csv tests/acceptance/data_poi_part_2.csv --alghoritm normalize_road
+merge tests/acceptance/data_poi_part_1.csv tests/acceptance/data_poi_part_2.csv --algorithm normalize_road
 ```

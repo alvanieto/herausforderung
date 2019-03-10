@@ -13,7 +13,7 @@ from pytest_bdd import (
 from herausforderung.command import merge_files
 
 
-@scenario('poi_adquisition.feature', 'Merging to csv files with different normalization alghoritm')
+@scenario('poi_adquisition.feature', 'Merging to csv files with different normalization algorithm')
 def test_merging_to_csv_files():
     '''Merging to csv files.'''
 
@@ -23,9 +23,9 @@ def two_files_input_data_1csv_and_input_data_2csv(input_data_1: str, input_data_
     pass
 
 
-@when('I merge these files with normalize alghoritm <alghoritm>')
-def i_merge_these_files(input_data_1: str, input_data_2: str, alghoritm: str):
-    merge_files(_abs_filename(input_data_1), _abs_filename(input_data_2), alghoritm)
+@when('I merge these files with normalize algorithm <algorithm>')
+def i_merge_these_files(input_data_1: str, input_data_2: str, algorithm: str):
+    merge_files(_abs_filename(input_data_1), _abs_filename(input_data_2), algorithm)
 
 
 @then('I get the next merged file <merged_data>')
