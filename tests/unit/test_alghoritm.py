@@ -7,6 +7,9 @@ from herausforderung.alghoritm import (alghoritm_pipeline, _lowercase, _remove_s
 @pytest.mark.parametrize('alghoritm, expected', [
     ('', []),
     ('simple', [_lowercase]),
+    ('no_special_chars', [_lowercase, _remove_special_chars]),
+    ('normalize_street', [_lowercase, _remove_special_chars, _normalize_street]),
+    ('normalize_road', [_lowercase, _remove_special_chars, _normalize_street, _normalize_road]),
 ])
 def test_alghoritm_pipeline(alghoritm, expected):
     assert alghoritm_pipeline(alghoritm) == expected
