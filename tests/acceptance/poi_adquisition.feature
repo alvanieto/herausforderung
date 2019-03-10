@@ -12,3 +12,5 @@ Scenario Outline: Merging to csv files with different normalization alghoritm
     | input_data_no_norm_1.csv | input_data_no_norm_2.csv | None              | merged_data_no_norm.csv           |
     | data_poi_part_1.csv      | data_poi_part_2.csv      | simple            | merged_data_simple.csv            |
     | data_poi_part_1.csv      | data_poi_part_2.csv      | no_special_chars  | merged_data_no_special_chars.csv  |
+    | data_poi_part_1.csv      | data_poi_part_2.csv      | normalize_street  | merged_data_normalize_street.csv  |
+    | data_poi_part_1.csv      | data_poi_part_2.csv      | normalize_road    | merged_data_normalize_road.csv    |

@@ -1,3 +1,6 @@
+import re
+
+
 def alghoritm_pipeline(alghoritm=''):
     """Factory that return a pipeline of alghortms.
 
@@ -12,10 +15,16 @@ def _lowercase(value: str) -> str:
 
 
 def _remove_special_chars(value: str) -> str:
-    special_chars = (' - ',)
-    for char_ in special_chars:
-        value = value.replace(char_, ' ')
-    return value
+    # NOTE: Order of special chars is important if the chars appears in various patterns
+    return re.sub(r' – | - ', ' ', value)
+
+
+def _normalize_street(value: str) -> str:
+    return re.sub(r' st\.| st$', ' street', value)
+
+
+def _normalize_road(value: str) -> str:
+    return re.sub(r' rd\.| rd$', ' road', value)
 
 
 _ALGHORITM_PIPELINES = {
@@ -25,5 +34,16 @@ _ALGHORITM_PIPELINES = {
     'no_special_chars': [
         _lowercase,
         _remove_special_chars
+    ],
+    'normalize_street': [
+        _lowercase,
+        _remove_special_chars,
+        _normalize_street
+    ],
+    'normalize_road': [
+        _lowercase,
+        _remove_special_chars,
+        _normalize_street,
+        _normalize_road
     ]
 }
