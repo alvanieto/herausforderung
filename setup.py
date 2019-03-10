@@ -11,7 +11,7 @@ def requirements_file(filename='requirements.txt'):
 
 setup(
     name='herausforderung',
-    version='0.0.1',
+    version='1.0.0',
     author='Álvaro Nieto',
     author_email='alvaro.nieto@gmail.com',
     description='Data POI-Adquisition merge',
